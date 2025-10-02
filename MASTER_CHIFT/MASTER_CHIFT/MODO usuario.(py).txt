@@ -1,0 +1,359 @@
+#PALETA DE COLORES:
+BLACK = '\033[30m'
+RED = '\033[31m'
+GREEN = '\033[32m'
+YELLOW = '\033[33m'
+BLUE = '\033[34m'
+MAGENTA = '\033[35m'
+CYAN = '\033[36m'
+WHITE = '\033[37m'
+RESET = '\033[39m'
+
+
+
+
+# \\\\\\\\\\INICO DE REGISTRO DE USUARIO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+def presentacion():
+    print(WHITE+"  <<-------------------------------------->>")
+    print(BLUE+ "               RUBL0XIL.STUDIOS-GAME")
+    print(MAGENTA+"                  COMPANY-BANK ")
+    print(WHITE+"  <<-------------------------------------->>\n")
+def MENU_CANTIDADES():
+    # cantidades de abono
+    print("   10.000      >1")
+    print("   100.000     >2")
+    print("   200.000     >3")
+    print("   OTRO        >4")
+def CARGADOR_1():
+    X = 0
+    while X < 101:
+        print(MAGENTA + f"{X} \n")
+        X += 1
+
+#ALMACEN DE DATOS DE USUARIO
+DATA = []
+saldo = 0.000
+#constante borrable> def presentacion>
+
+while True:
+    print(GREEN + "CREAR CUENTA \ REGISTRAR--> 1")
+    print(WHITE + "ACCEDER                 --> 2")
+    SELECION_OPCION = int(input("Digite el numero :"))
+
+    while SELECION_OPCION > 3:
+        print(RED + "HA DISGITADO MAL LA OPCION")
+        selecion = int(input("Digite el numero :"))
+
+    DATA_usuario_sistema = {}#este es el acceso de imformacion por parte del usuario
+
+    if SELECION_OPCION == 1:
+        print(YELLOW + "....                              RESGISTRANDO\n")
+
+        CREADA_USUARIO = input(WHITE + "Nombre del usuario :")
+        DATA.append(CREADA_USUARIO)
+        DATA_usuario_sistema["Nombre del usuario :"]=CREADA_USUARIO
+
+        CREADA_PASSWORD = input(WHITE + "Contraseña :")
+        DATA.append(CREADA_PASSWORD)
+        DATA_usuario_sistema["Contraseña :"]=CREADA_PASSWORD
+
+        BANCO_REFERENCIA = input(WHITE + "Banco de refrecia :")
+        DATA.append(BANCO_REFERENCIA)
+        DATA_usuario_sistema["Banco de referencia :"]=BANCO_REFERENCIA
+
+        SERIAL_TARJETA = input(WHITE + "Serial de trajeta (7caracteres) :")
+        DATA.append(SERIAL_TARJETA)
+        DATA_usuario_sistema["SERIAL TARJETA:"]=SERIAL_TARJETA
+
+
+        # vereficador de caracteres
+
+        cierre_datos_usuario = set(DATA)  # conjunto dre almacen de datos la cual no se podran cambiar
+
+        # continuacion de usuario
+        presentacion()
+        print(GREEN + "ACCEDIENO y COMPROVANDO IMFORMACON")
+        CARGADOR_1()
+        print(YELLOW + "TODO EN ORDEN \n")
+        presentacion()
+
+        # menu-transacciones
+        print(YELLOW + f"SALDO : {saldo:.3f}")
+        print(WHITE + "    DEPOSITAR     >1")
+        print(BLUE + "     RETIRAR     >2")
+        print(RED + "    salir         >3")
+        selecion1 = int(input(WHITE + "Digite el numero :"))
+        while selecion1 > 2:
+            print(RED + "Error,esta opcion no se encuentra")
+            selecion1 = int(input(WHITE + "Digite el numero :"))
+
+
+        def saldo_presentacion_salida():
+            DATA_usuario_sistema["saldo:"] = saldo
+            print(WHITE + " \n Gracias por usar :")
+            presentacion()
+
+        # menu de transferencias
+        if selecion1 == 1:  # DEPOSITAR
+            MENU_CANTIDADES()
+
+            depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+            while depositar > 5:
+                print(RED + "ESTA OPCION NO SE ENCUENTRA")
+                depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+
+            if depositar == 1:
+                saldo += 10.000
+                DATA.append(saldo)
+                print(YELLOW + f"saldo actual :{saldo:.3f}")
+                saldo_presentacion_salida()
+                print(DATA)
+
+
+            elif depositar == 2:
+                saldo += 100.000
+                print(YELLOW + f"saldo actual :{saldo:.3f}")
+                DATA.append(saldo)
+                saldo_presentacion_salida()
+
+
+            elif depositar == 3:
+                saldo += 200.000
+                print(YELLOW + f"saldo actual :{saldo:.3f}")
+                DATA.append(saldo)
+                saldo_presentacion_salida()
+
+
+            # menu de tranderencua_opcion 4
+            elif depositar == 4:
+                depositar1 = float(input("CUANTO DESEA DEPOSITAR:"))
+                saldo += depositar1
+                print(YELLOW + f"saldo actual :{saldo:.3f}")
+                DATA.append(saldo)
+                saldo_presentacion_salida()
+
+        #OPCION 2 :RETIRAR
+        elif selecion1 ==2:
+            if  saldo >0:
+                print(f"{saldo:.3f}")
+                MENU_CANTIDADES()
+                depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                while depositar > 5:
+                    print(RED + "ESTA OPCION NO SE ENCUENTRA")
+                    depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+
+
+                if depositar == 1:
+                    saldo -= 10.000
+                    DATA.append(saldo)
+                    print(YELLOW + f"saldo actual :{saldo:.3f}")
+                    saldo_presentacion_salida()
+                    print(DATA)
+
+
+                elif depositar == 2:
+                    saldo -= 100.000
+                    print(YELLOW + f"saldo actual :{saldo:.3f}")
+                    DATA.append(saldo)
+                    saldo_presentacion_salida()
+
+
+                elif depositar == 3:
+                    saldo -= 200.000
+                    print(YELLOW + f"saldo actual :{saldo:.3f}")
+                    DATA.append(saldo)
+                    saldo_presentacion_salida()
+
+                    # menu de tranderencua_opcion 4
+                elif depositar == 4:
+                    depositar1 = float(input("CUANTO DESEA DEPOSITAR:"))
+                    saldo -= depositar1
+                    print(YELLOW + f"saldo actual :{saldo:.3f}")
+                    DATA.append(saldo)
+                    saldo_presentacion_salida()
+            else:
+                print(RED+"usted no tiene este dinero")
+
+        # OPCION 3:SALIR (USUARIO)
+        else:
+            print(MAGENTA + "saliedo,su cuenta ha sido creada con exito")
+            CARGADOR_1()
+            print("GRACIAS POR PREFERIRNOS")
+            presentacion()
+    #ACCESO
+    else:
+        presentacion()
+        print(YELLOW + "....                              ACCESDIENDO A CUENTA\n")
+
+        saldo_1=0.000
+
+
+        CONTADOR = 1
+        while CONTADOR <= 3:
+            ACCESO_USUARIO = input(WHITE + "Nombre del usuario :")
+            PASSWORD = input(WHITE + "Contraseña :")
+            if ACCESO_USUARIO in DATA and PASSWORD in DATA:
+                print(BLUE+f"SEA BIEN VENIDO SEÑOR@{ACCESO_USUARIO}")
+                print("LOS DATOS SON CORRECTOS")
+                CONTADOR = 4
+
+                presentacion()
+                print(GREEN + "ACCEDIENO y COMPROVANDO IMFORMACON")
+                CARGADOR_1()
+                print(YELLOW + "TODO EN ORDEN \n")
+                presentacion()
+
+                # menu-transacciones
+                print(YELLOW + f"SALDO : {saldo:.3f}")
+                print(WHITE + "    DEPOSITAR     >1")
+                print(BLUE + "     RETIRAR     >2")
+                print(CYAN+" MOSTRAR DATOS   <3")                
+                print(RED + "    salir         >4")
+                
+                selecion1 = int(input(WHITE + "Digite el numero :"))
+                while selecion1 > 2:
+                    print(RED + "Error,esta opcion no se encuentra")
+                    selecion1 = int(input(WHITE + "Digite el numero :"))
+
+
+                def saldo_presentacion_salida():
+                    DATA_usuario_sistema["saldo:"] = saldo
+                    print(WHITE + " \n Gracias por usar :")
+                    presentacion()
+
+
+                # menu de transferencias
+                if selecion1 == 1:  # DEPOSITAR
+                    MENU_CANTIDADES()
+
+                    depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                    while depositar > 5:
+                        print(RED + "ESTA OPCION NO SE ENCUENTRA")
+                        depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+
+                    if depositar == 1:
+                        saldo += 10.000
+                        DATA.append(saldo)
+                        print(YELLOW + f"saldo actual :{saldo:.3f}")
+                        saldo_presentacion_salida()
+                        print(DATA)
+
+
+                    elif depositar == 2:
+                        saldo += 100.000
+                        print(YELLOW + f"saldo actual :{saldo:.3f}")
+                        DATA.append(saldo)
+                        saldo_presentacion_salida()
+
+
+                    elif depositar == 3:
+                        saldo += 200.000
+                        print(YELLOW + f"saldo actual :{saldo:.3f}")
+                        DATA.append(saldo)
+                        saldo_presentacion_salida()
+
+
+                    # menu de tranderencua_opcion 4
+                    elif depositar == 4:
+                        depositar1 = float(input("CUANTO DESEA DEPOSITAR:"))
+                        saldo += depositar1
+                        print(YELLOW + f"saldo actual :{saldo:.3f}")
+                        DATA.append(saldo)
+                        saldo_presentacion_salida()
+
+                # OPCION 2 :RETIRAR
+                elif selecion1 == 2:
+                    if saldo > 0:
+                        print(f"{saldo:.3f}")
+                        MENU_CANTIDADES()
+                        depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                        while depositar > 5:
+                            print(RED + "ESTA OPCION NO SE ENCUENTRA")
+                            depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+
+                        if depositar == 1:
+                            saldo -= 10.000
+                            DATA.append(saldo)
+                            print(YELLOW + f"saldo actual :{saldo:.3f}")
+                            saldo_presentacion_salida()
+                            print(DATA)
+
+
+                        elif depositar == 2:
+                            saldo -= 100.000
+                            print(YELLOW + f"saldo actual :{saldo:.3f}")
+                            DATA.append(saldo)
+                            saldo_presentacion_salida()
+
+
+                        elif depositar == 3:
+                            saldo -= 200.000
+                            print(YELLOW + f"saldo actual :{saldo:.3f}")
+                            DATA.append(saldo)
+                            saldo_presentacion_salida()
+
+                            # menu de tranderencua_opcion 4
+                        elif depositar == 4:
+                            depositar1 = float(input("CUANTO DESEA DEPOSITAR:"))
+                            saldo -= depositar1
+                            print(YELLOW + f"saldo actual :{saldo:.3f}")
+                            DATA.append(saldo)
+                            saldo_presentacion_salida()
+                    else:
+                        print(RED + "usted no tiene este dinero")
+
+                
+                #MOSTRAR DATOS DEL USUARIO (OPCION 3)                
+                elif selecion1 ==3:
+                    print(YELLOW + "....                              DATOS\n")
+                    PASSWORD = input(WHITE + "Contraseña :")
+                    if ACCESO_USUARIO in DATA and PASSWORD in DATA:
+                        print(BLUE + f"SEA BIEN VENIDO SEÑOR@{ACCESO_USUARIO}")
+                        print("LOS DATOS SON CORRECTOS")
+
+                    CONTADOR = 1
+                    while CONTADOR <= 3:
+                        PASSWORD = input(WHITE + "Contraseña :")
+                        if PASSWORD in DATA:
+                            print("CONTRASEÑA CORRECTA")
+                            print(DATA_usuario_sistema)
+                            CONTADOR = 4
+                        else:
+                            print("ERROR, LOS DATOS SON ICORRECTOS")
+                            if CONTADOR == 3:
+                                print("comunicate con el administrador")
+                            CONTADOR = CONTADOR + 1
+                
+                # OPCION 4:SALIR (USUARIO)
+                else:
+                    CARGADOR_1()
+                    print(f"GRACIAS POR PREFERIRNOS SEÑOR@ {ACCESO_USUARIO}")
+                    presentacion()
+                    
+            else:
+                print("ERROR, LOS DATOS SON ICORRECTOS")
+                if CONTADOR == 3:
+                    print("comunicate con el administrador")
+                CONTADOR = CONTADOR + 1
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

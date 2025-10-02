@@ -1,0 +1,22 @@
+FUNCIONES
+
+#FUNCIONES DENTRO DE (print)
+
+lend= sirve para contar los elementos
+in = vereficar si el elemento se encuentra  en lista
+x.index()= ubicar la posicion del elemento en lista
+
+#FUNCIONES FUERA (pero primero que print)
+
+x.append() =agregar un elemento,y este quedara de ultimas
+x.insert() = sirve para agregar un elemento en una posicion determinada,c
+             indise y luego el elemnto
+x.extent([]) = agrega listas,osa varios elemetos de golpe
+x.cuont() = determina cuantos valores eiste(cuantas veces aparece)
+x.pop()= eliminar untimo elemento de lista
+x.pop(indise a eliminar)= eliminar  con indise donde se ubica elenmeto
+x.remove() = eliminar elemento cuando no se sabe su ubicacion
+x.clear()=limpiar lista
+x.reverse() = para reversar la lista,o girarla
+x.sort()=ordenar lista con numeros enteros ,de menor a mayor
+x.sort(reverse=True)=ordear lista decendentemente

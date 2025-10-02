@@ -1,0 +1,219 @@
+#PALETA DE COLORES:
+BLACK = '\033[30m'
+RED = '\033[31m'
+GREEN = '\033[32m'
+YELLOW = '\033[33m'
+BLUE = '\033[34m'
+MAGENTA = '\033[35m'
+CYAN = '\033[36m'
+WHITE = '\033[37m'
+RESET = '\033[39m'
+
+
+                                          #BANCO
+
+                                 #PRESENTACION
+print("\n")
+print(WHITE+"  SEA BIEN VENIDO A  ")
+def presentacion():
+    print(WHITE+"  <<-------------------------------------->>")
+    print(BLUE+ "               RUBL0XIL.STUDIOS-GAME")
+    print(MAGENTA+"                  COMPANY-BANK ")
+    print(WHITE+"  <<-------------------------------------->>\n")
+presentacion()
+
+
+                            #acceso
+while True:
+    print(GREEN+"CREAR CUENTA \ REGISTRAR--> 1")
+    print(WHITE+"ACCEDER                 --> 2")
+    selecion=int(input("Digite el numero :"))
+    while selecion >3:
+        print(RED+"HA DISGITADO MAL LA OPCION")
+        selecion = int(input("Digite el numero :"))
+
+    #INICIO DE CUENTA DE ADINISTRADOR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    if selecion   ==0 :
+        print(YELLOW+" \n \t \t \t         MODO ADMINISTRADOR ACTIVADO \n ")
+
+        #   CONTADOR DE INTENTOS (BUCLE MADRE)
+        CONTADOR = 1
+        while CONTADOR <= 3:
+            ACCESO_ADMINISTRADOR = str(input(WHITE + "Nombre de Administaror:")).upper()
+            PASSWORD_ADMINISTRADOR = input(WHITE + "Contraseña :")
+            # ACCESO ___MODO ADMISTRADOR
+            if ACCESO_ADMINISTRADOR == 'RUBIEL' and PASSWORD_ADMINISTRADOR == 'xdd':
+                print(GREEN+"LOS DATOS SON CORRECTOS")
+                CONTADOR = 4
+
+                # recalcacion de modo
+                print(WHITE + "  <<-------------------------------------->>")
+                print(WHITE + f"                       SEA BIEN BENID0 SEÑOR:{ACCESO_ADMINISTRADOR}")
+                print(YELLOW + "                                    MODO:")
+                print(RED + "                                       ADMINISRADOR")
+
+                presentacion()
+
+                # menu-transacciones
+
+                saldo = 300000.000
+                print(YELLOW + f"SALDO : {saldo:.3f}")
+                print(WHITE + "      DEPOSITAR     >1")
+                print(GREEN + "      RETIRAR       <2 ")
+                print(RED + "      salir         >3")
+                selecion1 = int(input(WHITE + "Digite el numero :"))
+                while selecion1 > 2:
+                    print(RED + "Error,esta opcion no se encuentra")
+                    selecion1 = int(input(WHITE + "Digite el numero :"))
+
+                # menu de abonos
+                if selecion1 == 1:
+                    # cantidades de abono
+                    print("   10.000      >1")
+                    print("   100.000     >2")
+                    print("   200.000     >3")
+                    print("   OTRO        >4")
+                    depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                    while depositar > 5:
+                        print(RED + "ESTA OPCION NO SE ENCUENTRA")
+                        depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                    if depositar == 1:
+                        saldo += 1000.000
+                        # salido despedida cordial
+                        print(WHITE + "  <<-------------------------------------->>")
+                        print(WHITE + f"                       QUE ESTE BIEN  SEÑOR {ACCESO_ADMINISTRADOR}")
+                        print(YELLOW + "                                    MODO:")
+                        print(RED + "                                       ADMINISRADOR-CERRADO")
+                        print(YELLOW + f"saldo actual :{saldo:.3f}")
+
+                        presentacion()
+
+                    elif depositar == 2:
+                        saldo += 100.000
+                        # salido despedida cordial
+                        print(WHITE + "  <<-------------------------------------->>")
+                        print(WHITE + f"                       QUE ESTE BIEN  SEÑOR {ACCESO_ADMINISTRADOR}")
+                        print(YELLOW + "                                    MODO:")
+                        print(RED + "                                       ADMINISRADOR-CERRADO")
+                        print(YELLOW + f"saldo actual :{saldo:.3f}")
+
+                        presentacion()
+
+                    elif depositar == 3:
+                        saldo += 200.000
+                        # salido despedida cordial
+                        print(WHITE + "  <<-------------------------------------->>")
+                        print(WHITE + f"                       QUE ESTE BIEN  SEÑOR {ACCESO_ADMINISTRADOR}")
+                        print(YELLOW + "                                    MODO:")
+                        print(RED + "                                       ADMINISRADOR-CERRADO")
+                        print(YELLOW + f"saldo actual :{saldo:.3f}")
+
+                        presentacion()
+
+                    elif depositar == 4:
+
+                        depositar1 = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                        while depositar1 == int:
+                            print(RED + f"ERROR")
+                            depositar1 = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                        saldo += depositar1
+                    print(YELLOW + f"saldo actual :{saldo:.3f}")
+
+                    # salido despedida cordial
+                    print(WHITE + "  <<-------------------------------------->>")
+                    print(WHITE + f"                       QUE ESTE BIEN  SEÑOR {ACCESO_ADMINISTRADOR}")
+                    print(YELLOW + "                                    MODO:")
+                    print(RED + "                                       ADMINISRADOR-CERRADO")
+
+                    presentacion()
+
+                # OPCION NUMERO :2 RETIRAR
+                elif selecion1 == 2:
+                    print(YELLOW + f"saldo:{saldo:.3f}")
+                    # cantidades de retiro
+                    print(WHITE + "   10.000      >1")
+                    print("   100.000     >2")
+                    print("   200.000     >3")
+                    print("   OTRO        >4")
+                    depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                    while depositar > 5:
+                        print(RED + "ESTA OPCION NO SE ENCUENTRA")
+                        depositar = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                    if depositar == 1:
+                        saldo -= 1000.000
+                        # salido despedida cordial
+                        print(WHITE + "  <<-------------------------------------->>")
+                        print(WHITE + f"                       QUE ESTE BIEN  SEÑOR {ACCESO_ADMINISTRADOR}")
+                        print(YELLOW + "                                    MODO:")
+                        print(RED + "                                       ADMINISRADOR-CERRADO")
+                        print(YELLOW + f"saldo actual :{saldo:.3f}")
+
+                        presentacion()
+                        break
+
+                    elif depositar == 2:
+                        saldo -= 100.000
+                        # salido despedida cordial
+                        print(WHITE + "  <<-------------------------------------->>")
+                        print(WHITE + f"                       QUE ESTE BIEN  SEÑOR {ACCESO_ADMINISTRADOR}")
+                        print(YELLOW + "                                    MODO:")
+                        print(RED + "                                       ADMINISRADOR-CERRADO")
+                        print(YELLOW + f"saldo actual :{saldo:.3f}")
+
+                        presentacion()
+                        break
+
+                    elif depositar == 3:
+                        saldo -= 200.000
+                        # salido despedida cordial
+                        print(WHITE + "  <<-------------------------------------->>")
+                        print(WHITE + f"                       QUE ESTE BIEN  SEÑOR {ACCESO_ADMINISTRADOR}")
+                        print(YELLOW + "                                    MODO:")
+                        print(RED + "                                       ADMINISRADOR-CERRADO")
+                        print(YELLOW + f"saldo actual :{saldo:.3f}")
+
+                        presentacion()
+                        break
+
+                    elif depositar == 4:
+
+                        depositar1 = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                        while depositar1 == int:
+                            print(RED + f"ERROR")
+                            depositar1 = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                        while depositar1 < 300000.000:
+                            print(RED + "USTED NO POSEE ESTA CANTIDAD DE DINERO")
+                            depositar1 = float(input(GREEN + "CUANTO DESEA DEPOSITAR:"))
+                        saldo -= depositar1
+                    print(YELLOW + f"saldo actual :{saldo:.3f}")
+
+
+
+                # OPCION NUMERO 3 :SALIR
+                elif selecion1 == 3:
+                    print(RED + "SALIEDO")
+                    # salido
+                    print(WHITE + "  <<-------------------------------------->>")
+                    print(WHITE + f"                       QUE ESTE BIEN  SEÑOR {ACCESO_ADMINISTRADOR}")
+                    print(YELLOW + "                                    MODO:")
+                    print(RED + "                                       ADMINISRADOR-CERRADO")
+
+                    presentacion()
+                    print(RED + "\n SALIENDO")
+            # fIN DE modo ADMINSTRADOR\/\/\//\/\/\/\
+
+            else:
+                if CONTADOR == 3:
+                    print(RED + "ERROR, LOS DATOS PRESENTADOS SON ICORRECTOS")
+                    print(RED + "\n \t (comunicate con el administrador)")
+                    print(RED + " \t ERROR,VUELVA A CARGAR LA PAGINA")
+                    presentacion()
+                    break
+                CONTADOR = CONTADOR + 1
+                #  modo ADMINSTRADOR CERRADO:(INTERPRETACION = no registarasda)/\//\/\/\/\
+
+
+
+
+
+
